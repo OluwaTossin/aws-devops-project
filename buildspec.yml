@@ -1,21 +1,17 @@
-version: 0.2
-
-phases:
-  install:
-    runtime-versions:
-      nodejs: 14
-    commands:
-      - cd backend
-      - npm install
-  build:
-    commands:
-      - npm run build
-      - zip -r function.zip .
-      - aws s3 cp function.zip s3://my-lambda-functions-bucket-001/function.zip
-      - aws lambda update-function-code --function-name MyLambdaFunction --s3-bucket my-lambda-functions-bucket-001 --s3-key function.zip
-artifacts:
-  files:
-    - function.zip
-cache:
-  paths:
-    - backend/node_modules/**/*
+version: 1.0
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd frontend
+        - npm install
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: frontend/.next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - frontend/node_modules/**/*
