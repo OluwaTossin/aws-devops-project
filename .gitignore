@@ -1,0 +1,27 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+.terraformrc.json
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
+
+# AWS credentials
+.aws/
+
+
+# Other files
+.DS_Store
+.env
