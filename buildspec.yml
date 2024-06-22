@@ -11,8 +11,8 @@ phases:
     commands:
       - npm run build
       - zip -r function.zip .
-      - aws s3 cp function.zip s3://your-bucket-name/function.zip
-      - aws lambda update-function-code --function-name MyLambdaFunction --s3-bucket your-bucket-name --s3-key function.zip
+      - aws s3 cp function.zip s3://my-lambda-functions-bucket-001/function.zip
+      - aws lambda update-function-code --function-name MyLambdaFunction --s3-bucket my-lambda-functions-bucket-001 --s3-key function.zip
 artifacts:
   files:
     - function.zip
